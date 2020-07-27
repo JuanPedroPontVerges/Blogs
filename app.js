@@ -6,10 +6,10 @@ const mongoose = require('mongoose')
 const Blog = require('./models/blogs')
 const port = process.env.PORT || 3000
 
+app.listen(port)
 
 const dburl = "mongodb+srv://pedrito:pelon3009@nodeblogs-th770.mongodb.net/nodeblogs?retryWrites=true&w=majority"
 mongoose.connect(dburl, { useNewUrlParser:true, useUnifiedTopology:true }) // el segundo parametro es para que no me tire error en la consola nomas
-    .then((res) => app.listen(port)) // we dont wanto to listen to requests UNTIL the connection has been stablished, so when the connection is stablish we start listening to requests
     .catch((err) => {
         console.log(err)
     })
