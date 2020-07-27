@@ -5,7 +5,10 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const Blog = require('./models/blogs')
 const port = process.env.PORT || 3000
+const ip = require('ip')
 
+
+console.dir(ip.address());
 app.listen(port)
 
 const dburl = "mongodb+srv://pedrito:pelon3009@nodeblogs-th770.mongodb.net/nodeblogs?retryWrites=true&w=majority"
