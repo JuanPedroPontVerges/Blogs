@@ -4,12 +4,12 @@ const ejs = require('ejs')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const Blog = require('./models/blogs')
-const mercadopago = require('mercadopago')
+const port = process.env.PORT || 3000
 
 
 const dburl = "mongodb+srv://pedrito:pelon3009@nodeblogs-th770.mongodb.net/nodeblogs?retryWrites=true&w=majority"
 mongoose.connect(dburl, { useNewUrlParser:true, useUnifiedTopology:true }) // el segundo parametro es para que no me tire error en la consola nomas
-    .then((res) => app.listen('3000')) // we dont wanto to listen to requests UNTIL the connection has been stablished, so when the connection is stablish we start listening to requests
+    .then((res) => app.listen(port)) // we dont wanto to listen to requests UNTIL the connection has been stablished, so when the connection is stablish we start listening to requests
     .catch((err) => {
         console.log(err)
     })
