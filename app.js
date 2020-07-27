@@ -4,7 +4,8 @@ const ejs = require('ejs')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const Blog = require('./models/blogs')
-const { result, get } = require('lodash')
+const mercadopago = require('mercadopago')
+
 
 const dburl = "mongodb+srv://pedrito:pelon3009@nodeblogs-th770.mongodb.net/nodeblogs?retryWrites=true&w=majority"
 mongoose.connect(dburl, { useNewUrlParser:true, useUnifiedTopology:true }) // el segundo parametro es para que no me tire error en la consola nomas
@@ -92,6 +93,8 @@ app.delete('/blogs/:id', (req, res) => {
       })
       .catch(err => console.log(err))
 })
+
+
 // 404 page
 app.use((req,res) => {
     res.status(404).render('404',{title:'404 Page'})
