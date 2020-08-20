@@ -9,10 +9,13 @@ const ip = require('ip')
 
 
 console.dir(ip.address());
-app.listen(port)
+
 
 const dburl = "mongodb+srv://pedrito:pelon3009@nodeblogs-th770.mongodb.net/nodeblogs?retryWrites=true&w=majority"
 mongoose.connect(dburl, { useNewUrlParser:true, useUnifiedTopology:true }) // el segundo parametro es para que no me tire error en la consola nomas
+    .then( res => {
+        app.listen(port)
+    })
     .catch((err) => {
         console.log(err)
     })
